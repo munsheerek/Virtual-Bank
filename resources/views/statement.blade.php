@@ -25,11 +25,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">DATETIME</th>
+                                <th scope="col">DATE & TIME</th>
                                 <th scope="col">AMOUNT</th>
                                 <th scope="col">TYPE</th>
                                 <th scope="col">DETAILS</th>
-                                <th scope="col">BALENCE</th>
+                                <th scope="col">BALANCE</th>
                             </tr>
                         </thead>
                         <tbody>

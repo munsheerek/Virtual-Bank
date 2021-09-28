@@ -13,13 +13,15 @@ class CreateDepositsTable extends Migration
      */
     public function up()
     {
-        Schema::create('deposits', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');   
-            $table->float('amount', 8, 2);
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('deposits')) {
+
+            Schema::create('deposits', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->integer('user_id')->unsigned();
+                $table->float('amount', 8, 2);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

@@ -13,13 +13,15 @@ class CreateWithdrawsTable extends Migration
      */
     public function up()
     {
-        Schema::create('withdraws', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->float('amount', 8,2);   
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('withdraws')) {
+
+            Schema::create('withdraws', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->integer('user_id')->unsigned();
+                $table->float('amount', 8,2);   
+                $table->timestamps();
+            });
+        }
     }
 
     /**

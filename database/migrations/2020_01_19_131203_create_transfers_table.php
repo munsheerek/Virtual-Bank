@@ -13,13 +13,15 @@ class CreateTransfersTable extends Migration
      */
     public function up()
     {
-        Schema::create('transfers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('transferFrom')->unsigned();
-            $table->integer('transferTo')->unsigned();
-            $table->float('amount', 8,2);
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('transfers')) {
+            Schema::create('transfers', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->integer('transferFrom')->unsigned();
+                $table->integer('transferTo')->unsigned();
+                $table->float('amount', 8,2);
+                $table->timestamps();
+            });
+        }
     }
 
     /**
